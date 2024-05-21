@@ -16,3 +16,10 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+// ajout des Event Listeners sur les flèches//
+const arrowLeft = document.querySelector(".arrow_left");
+const arrowRight = document.querySelector(".arrow_right");
+
+console.log(arrowLeft);
+console.log(arrowRight);
