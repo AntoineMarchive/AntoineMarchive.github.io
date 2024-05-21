@@ -125,14 +125,10 @@ header {
 /* Gestion des fleches du carrousel */
 #banner .arrow {
 	position: absolute;
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	padding: 2%;
-	font-size: 100px;
 }
 #banner .arrow_left {
 	left: 10px;
+
 }
 #banner .arrow_right {
 	right: 10px;
