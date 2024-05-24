@@ -24,6 +24,7 @@ const arrowRight = document.querySelector(".arrow_right");
 
 const bannerImg = document.querySelector(".banner-img");
 const textInfo = document.querySelector(".text-info");
+const dots = document.querySelector(".dots");
 
 let slidePosition = 0;
 
@@ -35,9 +36,10 @@ let slidePosition = 0;
 arrowLeft.addEventListener("click", () => {
   slidePosition--;
   if (slidePosition < 0) {
-    slidePosition = slides.length - 1;
+    slidePosition = 3;
   }
   changeSlide();
+  selectDot();
   //Vérification//
   console.log("gauche ok");
   console.log(slidePosition);
@@ -46,7 +48,7 @@ arrowLeft.addEventListener("click", () => {
 // eventlistner pour la droite
 arrowRight.addEventListener("click", () => {
   slidePosition++;
-  if (slidePosition > slides.length - 1) {
+  if (slidePosition > 3) {
     slidePosition = 0;
   }
   changeSlide();
@@ -58,33 +60,26 @@ arrowRight.addEventListener("click", () => {
 function changeSlide() {
   bannerImg.src = slides[slidePosition].image;
   textInfo.innerHTML = slides[slidePosition].tagLine;
-  selectDot();
 }
 
 
 									//DOTS
                   
-const dots = document.querySelector(".dots");
+
 
 const nombreElements = slides.length;
+
 for (let i = 0; i < slides.length; i++) {
 	const dot = document.createElement("div");
-  dot.classiclist.add("dot");
-  if (i === slidePosition) {
-    dot.classiclist.add("dot_selected");
+  dot.classList.add("dot");
+  if (i == slidePosition) {
+   dot.classList.add("dot_selected")
   } else {
-
   }
   dots.appendChild(dot);
 }
 
-function  selectDot() {
-  const dotElements = dots.querySelectorAll("dot");
-  dotElements.forEach(dot => {
-    dot.classList.remove("dot_selected");
-  });
-  dotElements[slidePosition].classiclist.add("dot_selected");
-}
+
 
 
 
