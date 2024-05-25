@@ -39,7 +39,6 @@ arrowLeft.addEventListener("click", () => {
     slidePosition = 3;
   }
   changeSlide();
-  selectDot();
   //Vérification//
   console.log("gauche ok");
   console.log(slidePosition);
@@ -52,6 +51,7 @@ arrowRight.addEventListener("click", () => {
     slidePosition = 0;
   }
   changeSlide();
+
   //vérification//
   console.log("droite ok");
   console.log(slidePosition);
@@ -60,6 +60,7 @@ arrowRight.addEventListener("click", () => {
 function changeSlide() {
   bannerImg.src = slides[slidePosition].image;
   textInfo.innerHTML = slides[slidePosition].tagLine;
+  updateDots()
 }
 
 
@@ -79,11 +80,13 @@ for (let i = 0; i < slides.length; i++) {
   dots.appendChild(dot);
 }
 
-
-
-
-
-
-
-
-
+function updateDots() {
+  const allDots = document.querySelectorAll(".dot");
+  allDots.forEach((dot, index) => {
+    if (index === slidePosition) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
+    }
+  });
+}
