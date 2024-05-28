@@ -1,7 +1,7 @@
 // Mes variables //
-const slides = [
-  {
-    image: "/assets/images/slideshow/slide1.jpg",
+const slides = [ //tableau//
+  { //=objets//
+   /*clé ou attribut */  image: "/assets/images/slideshow/slide1.jpg",
     tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
   },
   {
@@ -19,12 +19,14 @@ const slides = [
   },
 ];
 
+/*     var      =  objet .  fonction     ("chaine de caratere" vise une class) */
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 
 const bannerImg = document.querySelector(".banner-img");
 const textInfo = document.querySelector(".text-info");
-const dots = document.querySelector(".dots");
+const dotsContainer = document.querySelector(".dots");
+
 
 let slidePosition = 0;
 
@@ -34,27 +36,20 @@ let slidePosition = 0;
 // Ajout des eventListener //
 // eventlistner pour la gauche //
 arrowLeft.addEventListener("click", () => {
-  slidePosition--;
+  slidePosition--; /*decremente*/
   if (slidePosition < 0) {
-    slidePosition = 3;
+    slidePosition = slides.length - 1;
   }
   changeSlide();
-  //Vérification//
-  console.log("gauche ok");
-  console.log(slidePosition);
 });
 
 // eventlistner pour la droite
 arrowRight.addEventListener("click", () => {
-  slidePosition++;
-  if (slidePosition > 3) {
+  slidePosition++;/*incremente*/
+  if (slidePosition > slides.length - 1) {
     slidePosition = 0;
   }
   changeSlide();
-
-  //vérification//
-  console.log("droite ok");
-  console.log(slidePosition);
 });
 
 function changeSlide() {
@@ -68,20 +63,18 @@ function changeSlide() {
                   
 
 
-const nombreElements = slides.length;
-
 for (let i = 0; i < slides.length; i++) {
 	const dot = document.createElement("div");
   dot.classList.add("dot");
-  if (i == slidePosition) {
+  if (i == 0) {
    dot.classList.add("dot_selected")
-  } else {
   }
-  dots.appendChild(dot);
+  dotsContainer.appendChild(dot);
 }
+const allDots = document.querySelectorAll(".dot");
 
 function updateDots() {
-  const allDots = document.querySelectorAll(".dot");
+  
   allDots.forEach((dot, index) => {
     if (index === slidePosition) {
       dot.classList.add("dot_selected");
