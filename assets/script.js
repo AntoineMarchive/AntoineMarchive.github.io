@@ -1,7 +1,6 @@
-// Mes variables //
-const slides = [ //tableau//
-  { //=objets//
-   /*clé ou attribut */  image: "/assets/images/slideshow/slide1.jpg",
+// Déclaration de mes variables //
+const slides = [
+  { image: "/assets/images/slideshow/slide1.jpg",
     tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
   },
   {
@@ -19,12 +18,15 @@ const slides = [ //tableau//
   },
 ];
 
-/*     var      =  objet .  fonction     ("chaine de caratere" vise une class) */
+// Arrow //
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 
+// Slides //
 const bannerImg = document.querySelector(".banner-img");
 const textInfo = document.querySelector(".text-info");
+
+// Dots //
 const dotsContainer = document.querySelector(".dots");
 
 
@@ -59,9 +61,9 @@ function changeSlide() {
 }
 
 
-									//DOTS
-                  
-
+// DOTS //
+// Création des div "dot" // 
+// Ajout des "dot" & "dot_selected"         
 
 for (let i = 0; i < slides.length; i++) {
 	const dot = document.createElement("div");
@@ -74,7 +76,6 @@ for (let i = 0; i < slides.length; i++) {
 const allDots = document.querySelectorAll(".dot");
 
 function updateDots() {
-  
   allDots.forEach((dot, index) => {
     if (index === slidePosition) {
       dot.classList.add("dot_selected");
